@@ -47,11 +47,7 @@ func TestPingWithError(t *testing.T) {
 	PingHandler(w, req)
 	resp := w.Result()
 	defer resp.Body.Close()
-	data, err := ioutil.ReadAll(resp.Body)
 	if resp.StatusCode != 500 {
 		t.Error("error is null")
-	}
-	if string(data) == "PONG" {
-		t.Error(err.Error())
 	}
 }
